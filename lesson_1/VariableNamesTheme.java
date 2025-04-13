@@ -59,8 +59,8 @@ public class VariableNamesTheme {
         System.out.println("Случайное число = " + randomNumber);
 
         // математическое выражение
-        String mathematicalExpression = "a * b / c";
-        System.out.println("Математическое выражение = " + mathematicalExpression);
+        String mathExpr = "a * b / c";
+        System.out.println("Математическое выражение = " + mathExpr);
 
         // счет в игре
         String gameScore = "1:0";
@@ -125,12 +125,12 @@ public class VariableNamesTheme {
         System.out.println("Компьютер включен? = " + isComputerOn);
 
         // есть равные цифры?
-        boolean isEqualNumbers = false;
+        boolean hasEqualNumbers = false;
         System.out.println("Есть равные цифры? = " + isEqualNumbers);
 
         // служба создана?
-        boolean isServiceCreated = true;
-        System.out.println("Служба создана? = " + isServiceCreated);
+        boolean isCreatedService = true;
+        System.out.println("Служба создана? = " + isCreatedService);
 
         // файл пустой?
         boolean isEmptyFile = true;
