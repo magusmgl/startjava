@@ -126,7 +126,7 @@ public class VariableNamesTheme {
 
         // есть равные цифры?
         boolean hasEqualNumbers = false;
-        System.out.println("Есть равные цифры? = " + isEqualNumbers);
+        System.out.println("Есть равные цифры? = " + hasEqualNumbers);
 
         // служба создана?
         boolean isCreatedService = true;
