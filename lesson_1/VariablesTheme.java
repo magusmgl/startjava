@@ -119,10 +119,8 @@ public class VariablesTheme {
         int ones = number % 10;
         int tens = (number / 10) % 10;
         int hundreds = (number / 10) / 10;
-        int digitsSum;
-        int digitsProduct;
-        digitsSum = ones + tens + hundreds;
-        digitsProduct = ones * tens * hundreds;
+        int digitsSum = ones + tens + hundreds;
+        int digitsProduct = ones * tens * hundreds;
 
         System.out.println("\tЧисло " + number + " содержит:");
         System.out.println("\t\tсотен - " + hundreds);
