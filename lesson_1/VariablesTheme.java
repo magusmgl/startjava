@@ -115,13 +115,10 @@ public class VariablesTheme {
                         firdSymbol, fourthSymbol, fifthSymbol, sixthSymbol);
         
         System.out.println("\n6. МАНИПУЛЯЦИИ С СОТНЯМИ, ДЕСЯТКАМИ И ЕДИНИЦАМИ ЧИСЛА");
-        int hundreds;
-        int tens;
-        int ones;
         int number = 123;
-        ones = number % 10;
-        tens = (number / 10) % 10;
-        hundreds = (number / 10) / 10;
+        int ones = number % 10;
+        int tens = (number / 10) % 10;
+        int hundreds = (number / 10) / 10;
         int digitsSum;
         int digitsProduct;
         digitsSum = ones + tens + hundreds;
