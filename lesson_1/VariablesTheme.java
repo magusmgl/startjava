@@ -94,27 +94,25 @@ public class VariablesTheme {
         int fourthCode = 1074;
         int fifthCode = 1077;
         int sixthCode = 1090;
-        System.out.printf("%6d%6d%6d%6d%6d%6d%n", firstCode, secondCode,
-                firdCode, fourthCode,
-                fifthCode, sixthCode);
-        System.out.printf("%6c%6c%6c%6c%6c%6c%n", firstCode, secondCode,
-                firdCode, fourthCode,
-                fifthCode, sixthCode);
+        System.out.printf("%6d%6d%6d%6d%6d%6d%n",
+                firstCode, secondCode, firdCode, fourthCode, fifthCode, sixthCode);
+        System.out.printf("%6c%6c%6c%6c%6c%6c%n",
+                firstCode, secondCode, firdCode, fourthCode, fifthCode, sixthCode);
         
         System.out.println("\n6. АНАЛИЗ КОДА ТОВАРА");
         int productCode = 123;
-        int typePackaging = productCode % 10;
-        int productSubcategory = (productCode / 10) % 10;
-        int productCategory = (productCode / 10) / 10;
-        int checkSum = typePackaging + productSubcategory + productCategory;
-        int verifCode = typePackaging * productSubcategory * productCategory;
+        int packageType = productCode % 10;
+        int productSubcategory = productCode / 10 % 10;
+        int productCategory = productCode / 100;
+        int checksum = packageType + productSubcategory + productCategory;
+        int verificationCode = packageType * productSubcategory * productCategory;
 
         System.out.println("\tКод товара: " + productCode);
         System.out.println("\t\tкатегория товара - " + productCategory);
         System.out.println("\t\tподкатегория - " + productSubcategory);
-        System.out.println("\t\tтип упаковки - " + typePackaging);
-        System.out.println("\tКонтрольная сумма = " + checkSum); 
-        System.out.println("\tПроизведение разрядов = " + verifCode); 
+        System.out.println("\t\tтип упаковки - " + packageType);
+        System.out.println("\tКонтрольная сумма = " + checksum); 
+        System.out.println("\tПроверочный код = " + verificationCode); 
                 
         System.out.println("\n7 ВЫВОД ПАРАМЕТРОВ JVM И ОС");
         Runtime runtime = Runtime.getRuntime();
