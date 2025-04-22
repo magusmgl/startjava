@@ -29,17 +29,17 @@ public class IfElseStatementTheme {
         int stepsNumberToday = 6577;
         int stepsNumberYesterday = 8943;
         System.out.println("\tВчера вы прошли " + stepsNumberYesterday +
-                " шагов а, сегодня вы прошли " + stepsNumberToday + " шагов");
+                " шагов а, сегодня " + stepsNumberToday + " шагов");
         if (stepsNumberToday > stepsNumberYesterday) {
-            System.out.println("\tСегодня вы были более активны, чем вчера и прошли больше шагов");
+            System.out.println("\tСегодня вы были более активны.");
         } else if (stepsNumberToday < stepsNumberYesterday) {
-            System.out.println("\tСегодня вы были менее активны, чем вчера и прошли меньше шагов");
+            System.out.println("\tСегодня вы были менее активны.");
         } else {
             System.out.println("\tСегодня вы прошли столько же шагов, что и вчера.");
         }
         int averageStepsNumber = (stepsNumberToday + stepsNumberYesterday) / 2;
-        System.out.println("\tСреднее количество шагов за два дня составило: " +
-                averageStepsNumber + " шагов."); 
+        System.out.println("\tСреднее количество шагов: " +
+                averageStepsNumber); 
 
         System.out.println("\n3. ПРОВЕРКА КОЛИЧЕСТВА ГОСТЕЙ");
         int guestsNumber = 23;
@@ -59,19 +59,19 @@ public class IfElseStatementTheme {
         }
             
         System.out.println("\n4. ИНВЕНТАРИЗАЦИЯ");
-        int databaseSerialNumber = 231;
+        int dbSerialNumber = 231;
         int objectSerialNumber = 234;
-        if (databaseSerialNumber == objectSerialNumber) {
-            System.out.println("\t[№" + databaseSerialNumber + "]: компьютер на 3-м этаже в кабинете 2"); 
+        if (dbSerialNumber == objectSerialNumber) {
+            System.out.println("\t[№" + dbSerialNumber + "]: компьютер на 3-м этаже в кабинете 2"); 
         } else {
             System.out.println("\tНет полного совпадения:");
-            System.out.println("\tБаза данных: [№" + databaseSerialNumber + "]");
+            System.out.println("\tБаза данных: [№" + dbSerialNumber + "]");
             
-            int dbNumberOnes = databaseSerialNumber % 10;
+            int dbNumberOnes = dbSerialNumber % 10;
             int objectNumberOnes = objectSerialNumber % 10;
-            int dbNumberTens = databaseSerialNumber / 10 % 10;
+            int dbNumberTens = dbSerialNumber / 10 % 10;
             int objectNumberTens = objectSerialNumber / 10 % 10;
-            int dbNumberHundreds = databaseSerialNumber / 100;
+            int dbNumberHundreds = dbSerialNumber / 100;
             int objectNumberHundreds = objectSerialNumber / 100;
 
             System.out.printf("\tФактический: [№%s%s%s]%n", 
