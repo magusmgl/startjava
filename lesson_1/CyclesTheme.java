@@ -21,21 +21,16 @@ public class CyclesTheme {
         System.out.println("\tСумма чисел = " + digitsSum);
 
         System.out.println("\n2. ПРОВЕРКА, ЯВЛЯЕТСЯ ЛИ ЧИСЛО ПАЛИНДРОМОМ");
-        int palindromeNumber = 1234521;
-        String palindromeNumberStr = String.valueOf(palindromeNumber);
-
-        int checkedPaar = 0;
-        for (int l = 0; l < palindromeNumberStr.length() / 2; l++) {
-            if (palindromeNumberStr.charAt(l) != 
-                        palindromeNumberStr.charAt(palindromeNumberStr.length() - l - 1)) {
-                System.out.println("\tЧисло " + palindromeNumber + " - не палиндром");
-                break;
-            }
-            checkedPaar += 1;
+        int palindromeNumber = 1234321;
+        int originalNumber = palindromeNumber;
+        int reversedNumber = 0;
+        
+        while (originalNumber != 0) {
+            reversedNumber = reversedNumber * 10 + originalNumber % 10;
+            originalNumber /= 10;
         }
-        if (checkedPaar == palindromeNumberStr.length() / 2) {
-            System.out.println("\tЧисло " + palindromeNumber + " - палиндром");
-        }
+        System.out.printf("\tЧисло %d - %s палиндром", palindromeNumber, 
+                palindromeNumber == reversedNumber ? "" : "не");
 
         System.out.println("\n3. ПРОВЕРКА, ЯВЛЯЕТСЯ ЛИ ЧИСЛО СЧАСТЛИВЫМ");
         int luckyNumber = 101002;
