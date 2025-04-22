@@ -95,22 +95,17 @@ public class CyclesTheme {
         int firstNumber = 10;
         int secondNumber = 5;
         int firdNumber = 1;
-        int max;
-        if (firstNumber >= secondNumber && firstNumber >= firdNumber) {
-            max = firstNumber;
-        } else if (secondNumber >= firstNumber && secondNumber >= firdNumber) {
+        int max = firstNumber;
+        int min = secondNumber < firdNumber ? secondNumber : firdNumber;
+        if (secondNumber > max) {
             max = secondNumber;
-        } else {
+            min = firstNumber < firdNumber ? firstNumber : firdNumber;
+        }
+        if (firdNumber > max) {
             max = firdNumber;
+            min = firstNumber < secondNumber ? firstNumber : secondNumber;
         }
-        int min;
-        if (firstNumber <= secondNumber && firstNumber <= firdNumber) {
-            min = firstNumber;
-        } else if (secondNumber <= firstNumber && secondNumber <= firdNumber) {
-            min = secondNumber;
-        } else {
-            min = firdNumber;
-        }
+
         System.out.print("\t");
         for (int i = max; i >= min; i--) {
             System.out.print(i + " ");
