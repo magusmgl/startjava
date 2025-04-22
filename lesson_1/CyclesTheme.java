@@ -3,65 +3,65 @@ import java.util.Random;
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n\n1. ВЫВОД РЕВЕРСИВНОГО ЧИСЛА");
-        int number = 3242592;
+        int originalNumber = 3242592;
         int digitsSum = 0;
-        int numberTwoCounted = 0;
+        int twosCount = 0;
         System.out.print("\tВ ");
-        while (number > 0) {
-            int currentDigit = number % 10;
+        while (originalNumber > 0) {
+            int currentDigit = originalNumber % 10;
             System.out.print(currentDigit);
             digitsSum += currentDigit;
             if (currentDigit == 2) {
-                numberTwoCounted += 1;
+                twosCount++;
             }
-            number = number / 10;
+            originalNumber /= 10;
         }
-        System.out.println((numberTwoCounted % 2 == 0 ? " четное (" : " не четное (") + 
-                numberTwoCounted + ") количество двоек.");
+        System.out.println((twosCount % 2 == 0 ? " четное (" : " не четное (") + 
+                twosCount + ") количество двоек.");
         System.out.println("\tСумма чисел = " + digitsSum);
 
         System.out.println("\n2. ПРОВЕРКА, ЯВЛЯЕТСЯ ЛИ ЧИСЛО ПАЛИНДРОМОМ");
-        int palindromeNumber = 1234321;
-        int originalNumber = palindromeNumber;
+        originalNumber = 1234321;
+        int currentNumber = originalNumber;
         int reversedNumber = 0;
         
-        while (originalNumber != 0) {
-            reversedNumber = reversedNumber * 10 + originalNumber % 10;
-            originalNumber /= 10;
+        while (currentNumber > 0) {
+            reversedNumber = reversedNumber * 10 + currentNumber % 10;
+            currentNumber /= 10;
         }
-        System.out.printf("\tЧисло %d - %s палиндром", palindromeNumber, 
-                palindromeNumber == reversedNumber ? "" : "не");
+        System.out.printf("\tЧисло %d - %s палиндром%n", originalNumber,
+                originalNumber == reversedNumber ? "" : "не");
 
         System.out.println("\n3. ПРОВЕРКА, ЯВЛЯЕТСЯ ЛИ ЧИСЛО СЧАСТЛИВЫМ");
-        int luckyNumber = 101002;
-        int leftNumbers = luckyNumber / 1000;
-        int rightNumbers = luckyNumber % 1000;
+        originalNumber = 101002;
+        int leftNumbers = originalNumber / 1000;
+        int rightNumbers = originalNumber % 1000;
         int leftNumbersSum = 0;
         int rightNumbersSum = 0;
-        for (int k = 1; k <= 3; k++) {
+        for (int i = 1; i <= 3; i++) {
             leftNumbersSum += leftNumbers % 10;
             leftNumbers /= 10;
 
             rightNumbersSum += rightNumbers % 10;
             rightNumbers /= 10;
         }
-        System.out.printf("\tЧисло %d - %s%n", luckyNumber,
+        System.out.printf("\tЧисло %d - %s%n", originalNumber,
                 leftNumbersSum == rightNumbersSum ? "счастливое" : "не счастливое");
-        System.out.printf("\tСумма чисел %03d = %d%n", luckyNumber / 1000, leftNumbersSum);
-        System.out.printf("\tСумма чисел %03d = %d%n", luckyNumber % 1000, rightNumbersSum);
+        System.out.printf("\tСумма чисел %03d = %d%n", originalNumber / 1000, leftNumbersSum);
+        System.out.printf("\tСумма чисел %03d = %d%n", originalNumber % 1000, rightNumbersSum);
 
         System.out.println("\n4. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ");
-        Random ran = new Random();
+        Random rnd = new Random();
         Boolean hasSmallLetter = false;
         Boolean hasBigLetter = false;
         Boolean hasNumber = false;
         Boolean hasSymbols = false;
         int passwordLength = 8;
+        StringBuilder password = new StringBuilder();
     
-        System.out.print("\tПароль: ");
-        for (var i = 1; i <= passwordLength; i++) {
-            char ch = (char) (ran.nextInt(126 - 33 + 1) + 33);
-            System.out.print(ch);
+        for (int i = 1; i <= passwordLength; i++) {
+            char ch = (char) rnd.nextInt(33, 127);
+            password.append(ch);
             
             if (Character.isLowerCase(ch)) {
                 hasSmallLetter = true;
@@ -76,6 +76,7 @@ public class CyclesTheme {
                 hasSymbols = true;
             }
         }
+        System.out.print("\tПароль: " + password);
         System.out.print("\n\tНадежность: ");
         if (passwordLength >= 8 &&
                 hasSmallLetter &&
@@ -90,7 +91,7 @@ public class CyclesTheme {
             System.out.println(" Слабый");
         }
   
-        System.out.println("\n\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX В ПОРЯДКЕ УБЫВАНИЯ");
+        System.out.println("\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX В ПОРЯДКЕ УБЫВАНИЯ");
         int firstNumber = 10;
         int secondNumber = 5;
         int firdNumber = 1;
@@ -111,26 +112,26 @@ public class CyclesTheme {
             min = firdNumber;
         }
         System.out.print("\t");
-        for (var i = max; i >= min; i--) {
+        for (int i = max; i >= min; i--) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\n6. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
-        int startIntervaL = 1;
+        int startInterval = 1;
         int endInterval = 24;
-        int j = 0;
-        for (int i = startIntervaL; i <= endInterval; i++) {
-            if (i % 2 == 0) {
-                j += 1;
-                if (j % 5 == 0) {
-                    System.out.printf("%5d%n", i);
+        int evensCount = 0;
+        for (currentNumber = startInterval; currentNumber <= endInterval; currentNumber++) {
+            if (currentNumber % 2 == 0) {
+                evensCount++;
+                if (evensCount % 5 == 0) {
+                    System.out.printf("%5d%n", currentNumber);
                 } else {
-                    System.out.printf("%5d", i);
+                    System.out.printf("%5d", currentNumber);
                 }
             }
-            if (i == endInterval && j % 5 != 0) {
-                int zerosNumber = 5 - j % 5;
-                for (int k = 1; k <= zerosNumber; k++) {
+            if (currentNumber == endInterval && evensCount % 5 != 0) {
+                int zerosCount = 5 - evensCount % 5;
+                for (int j = 1; j <= zerosCount; j++) {
                     System.out.printf("%5d", 0);
                 }
                 System.out.println(); 
@@ -153,43 +154,44 @@ public class CyclesTheme {
             }
         }
 
-        System.out.println("\n\n8. ВЫВОД ГЕОМЕТРИЧЕСКИХ ФИГУР");
+        System.out.println("\n8. ВЫВОД ГЕОМЕТРИЧЕСКИХ ФИГУР");
         char asterisk = 42;
         char underscore = 95;
         char caret = 94;
 
         for (int i = 1; i <= 5; i++) {
-            for (int k = 0; k <= 10; k++) {
+            System.out.print("\t");
+            for (int j = 0; j <= 10; j++) {
                 System.out.printf("%2c", underscore);
             }
             System.out.print(" "); 
-            for (int m = 1; m <= 5 - i + 1; m++) {
+            for (int j = 1; j <= 5 - i + 1; j++) {
                 System.out.printf("%2c", asterisk);
             }
             System.out.print(" ");
-            for (int l = 1; l <= 1 + i - 1; l++) {
+            for (int j = 1; j <= 1 + i - 1; j++) {
                 System.out.printf("%2c", caret);
             }
             System.out.println();
         }
 
         System.out.println("\n9. ВЫВОД ТАБЛИЦЫ УМНОЖЕНИЯ");
-        for (int p = 0; p <= 9; p++) {
-            for (int o = 1; o <= 9; o++) {
-                if (p == 0 && o == 1) {
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                if (i == 0 && j == 1) {
                     System.out.printf("%3s", "|");
-                } else if (p == 0 && o != 1) {
-                    System.out.printf("%3d", o);
-                } else if (p == 1 && o == 1) {
+                } else if (i == 0 && j != 1) {
+                    System.out.printf("%3d", j);
+                } else if (i == 1 && j == 1) {
                     System.out.println();
                     System.out.printf("--%s", "+");
-                } else if (p == 1 && o != 1) {
+                } else if (i == 1 && j != 1) {
                     System.out.printf("%3s", "---");
-                } else if ((p != 0 || p != 1) && o == 1) {
+                } else if ((i != 0 || i != 1) && j == 1) {
                     System.out.println();
-                    System.out.printf("%-2d|", p);
-                } else if ((p != 0 || p != 1) && o != 1) {
-                    System.out.printf("%3d", p * o);
+                    System.out.printf("%-2d|", i);
+                } else if ((i != 0 || i != 1) && j != 1) {
+                    System.out.printf("%3d", i * j);
                 }
             }    
         }
