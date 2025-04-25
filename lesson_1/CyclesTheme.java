@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Random;
 
 public class CyclesTheme {
@@ -94,50 +95,52 @@ public class CyclesTheme {
         System.out.println("\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX В ПОРЯДКЕ УБЫВАНИЯ");
         int firstNumber = 10;
         int secondNumber = 5;
-        int firdNumber = 1;
+        int firdNumber = -1;
         int max = firstNumber;
-        int min = secondNumber < firdNumber ? secondNumber : firdNumber;
         if (secondNumber > max) {
             max = secondNumber;
-            min = firstNumber < firdNumber ? firstNumber : firdNumber;
         }
         if (firdNumber > max) {
             max = firdNumber;
-            min = firstNumber < secondNumber ? firstNumber : secondNumber;
+        }
+        int min = firstNumber;
+        if (secondNumber < min) {
+            min = secondNumber;
+        }
+        if (firdNumber < min) {
+            min = firdNumber;
         }
 
         System.out.print("\t");
-        for (int i = max; i >= min; i--) {
+        for (int i = max - 1; i > min; i--) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\n6. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
-        int startInterval = 1;
-        int endInterval = 24;
-        int evensCount = 0;
-        for (currentNumber = startInterval; currentNumber <= endInterval; currentNumber++) {
-            if (currentNumber % 2 == 0) {
-                evensCount++;
-                if (evensCount % 5 == 0) {
-                    System.out.printf("%5d%n", currentNumber);
+        firstNumber = 1;
+        int lastNumber = 24;
+        int oddsCount = 0;
+        for (int i = firstNumber; i < lastNumber; i++) {
+            if (i % 2 != 0) {
+                oddsCount++;
+                if (oddsCount % 5 == 0) {
+                    System.out.printf("%5d%n", i);
                 } else {
-                    System.out.printf("%5d", currentNumber);
+                    System.out.printf("%5d", i);
                 }
-            }
-            if (currentNumber == endInterval && evensCount % 5 != 0) {
-                int zerosCount = 5 - evensCount % 5;
-                for (int j = 1; j <= zerosCount; j++) {
-                    System.out.printf("%5d", 0);
-                }
-                System.out.println(); 
             }
         }
 
+        if (oddsCount % 5 != 0) {
+            int zerosCount = 5 - oddsCount % 5;
+            for (int j = 1; j <= zerosCount; j++) {
+                System.out.printf("%5d", 0);
+            }
+            System.out.println(); 
+        }
+
         System.out.println("\n7. ВЫВОД ASCII-СИМВОЛОВ");
-        String firstColName = "DECIMAL";
-        String secondColName = "CHARACTER";
-        String firdColName = "DESCRIPTION";
-        System.out.printf("%10s%10s%13s%n", firstColName, secondColName, firdColName);
+        System.out.printf("%10s%10s%13s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
         for (int i = 33; i <= 47; i++) {
             if (i % 2 != 0) {
                 System.out.printf("     %-10d%-10c%-10s%n", i, i, Character.getName(i));
@@ -150,45 +153,43 @@ public class CyclesTheme {
         }
 
         System.out.println("\n8. ВЫВОД ГЕОМЕТРИЧЕСКИХ ФИГУР");
-        char asterisk = 42;
-        char underscore = 95;
-        char caret = 94;
-
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print("\t");
             for (int j = 0; j <= 10; j++) {
-                System.out.printf("%2c", underscore);
+                System.out.printf("%c", '-');
             }
             System.out.print(" "); 
-            for (int j = 1; j <= 5 - i + 1; j++) {
-                System.out.printf("%2c", asterisk);
+            for (int j = 1; j <= 5 - i; j++) {
+                System.out.printf("%c", '*');
             }
             System.out.print(" ");
-            for (int j = 1; j <= 1 + i - 1; j++) {
-                System.out.printf("%2c", caret);
+            for (int j = 1; j <= 2 * i + 1; j++) {
+                System.out.printf("%c", '^');
             }
             System.out.println();
         }
 
         System.out.println("\n9. ВЫВОД ТАБЛИЦЫ УМНОЖЕНИЯ");
         for (int i = 0; i <= 9; i++) {
-            for (int j = 1; j <= 9; j++) {
-                if (i == 0 && j == 1) {
-                    System.out.printf("%3s", "|");
-                } else if (i == 0 && j != 1) {
+            if (i == 0) {
+                System.out.printf("%5s", "|");
+                for (int j = 2; j <= 9; j++) {
                     System.out.printf("%3d", j);
-                } else if (i == 1 && j == 1) {
-                    System.out.println();
-                    System.out.printf("--%s", "+");
-                } else if (i == 1 && j != 1) {
-                    System.out.printf("%3s", "---");
-                } else if ((i != 0 || i != 1) && j == 1) {
-                    System.out.println();
-                    System.out.printf("%-2d|", i);
-                } else if ((i != 0 || i != 1) && j != 1) {
+                }
+                System.out.println();
+            } else if (i == 1) {
+                System.out.printf("%5s", "--+");
+                for (int j = 1; j < 9; j++) {
+                    System.out.printf("%s", "---");
+                }
+                System.out.println();
+            } else {
+                System.out.printf("%3d |", i);
+                for (int j = 2; j <= 9; j++) {
                     System.out.printf("%3d", i * j);
                 }
-            }    
+                System.out.println();
+            }
         }
     }
 }
