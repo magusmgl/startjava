@@ -6,16 +6,16 @@ public class MyFirstGame {
         int endInterval = 101;
         Random rnd = new Random();
         int hiddenNumber = rnd.nextInt(startInterval, endInterval);
-        int userNumber = rnd.nextInt(startInterval, endInterval); 
-        while (hiddenNumber != userNumber) {
-            if (hiddenNumber < userNumber) {
-                endInterval = userNumber;
-                System.out.printf("%d больше того, что загадал компьютер", userNumber);
-            } else if (hiddenNumber > userNumber) {
-                startInterval = userNumber + 1;
-                System.out.printf("%d меньше того, что загадал компьютер", userNumber);
+        int playerNumber = rnd.nextInt(startInterval, endInterval); 
+        while (hiddenNumber != playerNumber) {
+            if (hiddenNumber < playerNumber) {
+                endInterval = playerNumber;
+                System.out.printf("%d больше того, что загадал компьютер", playerNumber);
+            } else if (hiddenNumber > playerNumber) {
+                startInterval = playerNumber + 1;
+                System.out.printf("%d меньше того, что загадал компьютер", playerNumber);
             }
-            userNumber = rnd.nextInt(startInterval, endInterval);
+            playerNumber = rnd.nextInt(startInterval, endInterval);
             System.out.println();
         }
         System.out.println("Вы победили!");

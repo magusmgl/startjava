@@ -1,11 +1,10 @@
-// package ru.topjava.lesson1;
 import java.util.Random;
 
 public class RpsGameFormatting {
-    // Игра Камень-Ножницы-Бумага
     public static void main(String[] args) throws InterruptedException {
+        // Игра Камень-Ножницы-Бумага
         String rock = "R";
-        String scissors= "S";
+        String scissors = "S";
         String paper = "P";
         Random rnd = new Random();
         
@@ -14,16 +13,16 @@ public class RpsGameFormatting {
         System.out.println("Ход " + firstPlayerName + ": ");
 
         for (int i = 0; i < 5; i++) {
-            System.out.print (rock + "\r") ;
+            System.out.print(rock + "\r");
             Thread.sleep(100);
-            System.out.print (scissors + "\r");
+            System.out.print(scissors + "\r");
             Thread.sleep(100);
-            System.out.print (paper + "\r");
+            System.out.print(paper + "\r");
             Thread.sleep(100);
         }
 
-        int firstPlayerPositon = rnd.nextInt(1, 100);
         String firstPlayerSign = rock;
+        int firstPlayerPositon = rnd.nextInt(1, 100);
         if (firstPlayerPositon > 66) {
             firstPlayerSign = paper;
         } else if (firstPlayerPositon > 33) {
@@ -31,7 +30,7 @@ public class RpsGameFormatting {
         }
         System.out.println(firstPlayerSign);
 
-         // Ход второго игрока
+        // Ход второго игрока
         String secondPlayerName = "WALLE";
         System.out.println("Ход " + secondPlayerName + ": ");
 
@@ -40,18 +39,18 @@ public class RpsGameFormatting {
             Thread.sleep(100);
             System.out.print(scissors + "\r");
             Thread.sleep(100);
-            System.out.print (paper + "\r");
+            System.out.print(paper + "\r");
             Thread.sleep(100);
         }
 
-        int secondPlayerPosition = rnd.nextInt (1, 100);
         String secondPlayerSign = rock;
+        int secondPlayerPosition = rnd.nextInt(1, 100);
         if (secondPlayerPosition > 66) {
             secondPlayerSign = paper;
         } else if (secondPlayerPosition > 33) {
             secondPlayerSign = scissors;
         }
-        System.out.println (secondPlayerSign);
+        System.out.println(secondPlayerSign);
 
         if (firstPlayerSign.equals(secondPlayerSign)) {
             System.out.println("Победила дружба!");
