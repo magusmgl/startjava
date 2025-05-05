@@ -1,8 +1,7 @@
-public class Calculator {
+public class Calc {
     private long operandOne;
     private long operandTwo;
     private char operator;
-    private boolean isMathOperationCorrect = false;
 
     public long getOperandOne() {
         return operandOne;
@@ -16,14 +15,14 @@ public class Calculator {
         return operandTwo;
     }
 
-    public void setOperandTwo(long operandTwo) {
+    public boolean setOperandTwo(long operandTwo) {
         if (operator == '/' &&
                 operandTwo == 0) {
             System.out.println("\tОшибка: деление на ноль запрещено");
-            isMathOperationCorrect = false;
+            return false;
         } else {
             this.operandTwo = operandTwo;
-            isMathOperationCorrect = true;
+            return true;
         }
     }
 
@@ -31,7 +30,7 @@ public class Calculator {
         return operator; 
     }
 
-    public void setOperator(char operator) {
+    public boolean setOperator(char operator) {
         if (operator == '+' ||
                 operator == '-' ||
                 operator == '/' ||
@@ -39,47 +38,32 @@ public class Calculator {
                 operator == '^' ||
                 operator == '%') {
             this.operator = operator;
-            isMathOperationCorrect = true;
+            return true;
         } else {
             System.out.printf("\tОшибка: операция '%c' не поддерживается%n", operator);
-            isMathOperationCorrect = false;
+            return false;
         }
     }
 
-    public boolean getMathOperationCorrect() {
-        return isMathOperationCorrect;
-    }
-
-    public float calulateMathOperation() {
-        float result = 0;
+    public float calculate() {
         switch (operator) {
             case '+':
-                result = operandOne + operandTwo;
-                break;
+                return operandOne + operandTwo;
             case '-':
-                result = operandOne - operandTwo;
-                break;
+                return operandOne - operandTwo;
             case '*': 
-                result = operandOne * operandTwo;
-                break;
+                return operandOne * operandTwo;
             case '/':
-                result = (float) operandOne / operandTwo;
-                break;
+                return (float) operandOne / operandTwo;
             case '^':
-                result = 1f;
+                float result = 1f;
                 for (long i = 0; i < Math.abs(operandTwo); i++) {
                     result *= operandOne;
                 }
-                if (operandTwo < 0) {
-                    result = 1 / result;
-                }
-                break;
+                return operandTwo < 0 ? result = 1 / result : result;
             case '%':
-                result = operandOne % operandTwo;
-                break;
-            default: 
-                break;
+                return operandOne % operandTwo;
         }
-        return result;
+        return 0;
     }
 }
