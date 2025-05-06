@@ -3,29 +3,27 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-        String continueCalculations = "";
         Scanner scan = new Scanner(System.in);
-
-        while (!continueCalculations.equalsIgnoreCase("NO")) {
+        String continueCalculations = "";
+ 
+        do {
             System.out.print("Введите первое число: ");
             long operandOne = scan.nextLong();
             calc.setOperandOne(operandOne);
             scan.nextLine();
 
-            boolean isSaveOperator;
+            char operator;
             do {
                 System.out.print("Введите знак операции (+, -, *, /, ^, %): ");
-                char operator = scan.nextLine().charAt(0);
-                isSaveOperator = calc.setOperator(operator);
-            } while (!isSaveOperator);
+                operator = scan.nextLine().charAt(0);
+            } while (!calc.setOperator(operator));
             
-            boolean isSaveOperandTwo;
+            long operandTwo;
             do {
                 System.out.print("Введите второе число: ");
-                long operandTwo = scan.nextLong();
-                isSaveOperandTwo = calc.setOperandTwo(operandTwo);
+                operandTwo = scan.nextLong();
                 scan.nextLine();
-            } while (!isSaveOperandTwo);
+            } while (!calc.setOperandTwo(operandTwo));
             
             System.out.printf("%d %c %d = %.3f%n", 
                     calc.getOperandOne(),
@@ -35,9 +33,9 @@ public class CalculatorTest {
 
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
-                continueCalculations = scan.nextLine();
-            } while (!continueCalculations.equalsIgnoreCase("YES") &&
-                        !continueCalculations.equalsIgnoreCase("NO"));
-        }
+                continueCalculations = scan.nextLine().trim().toLowerCase();
+            } while (!continueCalculations.equals("yes") &&
+                        !continueCalculations.equals("no"));
+        } while (!continueCalculations.equals("no"));
     }
 }

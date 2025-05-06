@@ -20,10 +20,10 @@ public class Calculator {
                 operandTwo == 0) {
             System.out.println("\tОшибка: деление на ноль запрещено");
             return false;
-        } else {
-            this.operandTwo = operandTwo;
-            return true;
         }
+
+        this.operandTwo = operandTwo;
+        return true;
     }
 
     public char getOperator() {
@@ -31,18 +31,18 @@ public class Calculator {
     }
 
     public boolean setOperator(char operator) {
-        if (operator == '+' ||
-                operator == '-' ||
-                operator == '/' ||
-                operator == '*' ||
-                operator == '^' ||
-                operator == '%') {
-            this.operator = operator;
-            return true;
-        } else {
+        if (operator != '+' &&
+                operator != '-' &&
+                operator != '/' &&
+                operator != '*' &&
+                operator != '^' &&
+                operator != '%') {
             System.out.printf("\tОшибка: операция '%c' не поддерживается%n", operator);
             return false;
         }
+
+        this.operator = operator;
+        return true;
     }
 
     public float calculate() {
@@ -60,7 +60,7 @@ public class Calculator {
                 for (long i = 0; i < Math.abs(operandTwo); i++) {
                     result *= operandOne;
                 }
-                return operandTwo < 0 ? result = 1 / result : result;
+                return operandTwo < 0 ? 1 / result : result;
             case '%':
                 return operandOne % operandTwo;
         }
