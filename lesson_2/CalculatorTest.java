@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class CalcTest {
+public class CalculatorTest {
     public static void main(String[] args) {
-        Calc calc = new Calc();
+        Calculator calc = new Calculator();
         String continueCalculations = "";
         Scanner scan = new Scanner(System.in);
 

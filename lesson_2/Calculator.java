@@ -1,4 +1,4 @@
-public class Calc {
+public class Calculator {
     private long operandOne;
     private long operandTwo;
     private char operator;
