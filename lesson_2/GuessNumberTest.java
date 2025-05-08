@@ -13,16 +13,16 @@ public class GuessNumberTest {
         String secondPlayerName = scan.nextLine();
         Player secondPlayer = new Player(secondPlayerName);
 
-        GuessNumber guessNum = new GuessNumber(firstPlayer, secondPlayer);
+        GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
         
-        String input = "";
+        String continueGame = "";
         do {
-            guessNum.startGame();
+            game.start();
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
-                input = scan.nextLine().trim().toLowerCase();
-            } while (!input.equals("yes") &&
-                !input.equals("no"));
-        } while (!input.equals("no"));
+                continueGame = scan.nextLine().trim().toLowerCase();
+            } while (!continueGame.equals("yes") &&
+                !continueGame.equals("no"));
+        } while (!continueGame.equals("no"));
     }
 }
