@@ -1,5 +1,6 @@
 import java.util.Random;
-
+import java.util.Scanner;
+        
 public class GuessNumber {
     private int hiddenNum;
     private Player firstPlayer;
@@ -14,19 +15,37 @@ public class GuessNumber {
         this.hiddenNum = hiddenNum;
     }
 
-    public boolean isPlayerGuessNum() {
-        Player currentPlayer = firstPlayer.getTurnGuessNum() ? firstPlayer : secondPlayer;
-        if (hiddenNum < currentPlayer.getNumber()) {
-            System.out.printf("%s число %d больше того, что загадал компьютер%n",
-                    currentPlayer.getName(), currentPlayer.getNumber());
-            return false;
-        } else if (hiddenNum > currentPlayer.getNumber()) {
-            System.out.printf("%s число %d меньше того, что загадал компьютер%n",
-                    currentPlayer.getName(), currentPlayer.getNumber());
-            return false;
-        } else {
-            System.out.printf("%s ты угадал число!%n", currentPlayer.getName());
-            return true;
-        }
+    public void startGame() {
+        Random rnd = new Random();
+        hiddenNum = rnd.nextInt(1, 101);
+        System.out.println(hiddenNum);
+
+        int firstPlayerNum;
+        int secondPlayerNum;
+        boolean isGameOver = false;
+        Scanner scan = new Scanner(System.in);
+        System.out.printf("\nКомпьютер загадал число от 1 до 100. Вам нужно угадать данное число.%n");
+        do {
+            do {
+                System.out.println(firstPlayer.getName() + " введите число: ");
+                firstPlayerNum = scan.nextInt();
+            } while (!firstPlayer.setNumber(firstPlayerNum)); 
+            
+            if (firstPlayer.getNumber() == hiddenNum) {
+                System.out.println(firstPlayer.getName() + " выиграл!");
+                isGameOver = true;
+                break;
+            }
+
+            do {
+                System.out.println(secondPlayer.getName() + " введите число: ");
+                secondPlayerNum = scan.nextInt();
+            } while (!secondPlayer.setNumber(secondPlayerNum)); 
+            
+            if (secondPlayer.getNumber() == hiddenNum) {
+                System.out.println(secondPlayer.getName() + " выиграл!");
+                isGameOver = true;
+            }
+        } while (!isGameOver);
     }
 }

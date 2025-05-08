@@ -1,7 +1,6 @@
 public class Player {
     private String name;
     private int number;
-    private boolean isTurnGuessNum = false;
 
     public Player(String name) {
         this.name = name;
@@ -14,16 +13,14 @@ public class Player {
     public int getNumber() {
         return number;
     }
-
-    public boolean getTurnGuessNum() {
-        return isTurnGuessNum;
-    }
-
-    public void setTurnGuessNum(boolean isTurnGuessNum) {
-        this.isTurnGuessNum = isTurnGuessNum;
-    }
     
-    public void setNumber(int number) {
+    public boolean setNumber(int number) {
+        if (number < 1 || number > 100) {
+            System.out.print(name + " введите число от 1 до 100: ");
+            return false;
+        }
+
         this.number = number;
+        return true;
     }
 }
