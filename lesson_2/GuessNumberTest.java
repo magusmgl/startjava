@@ -15,14 +15,14 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
         
-        String continueGame = "";
+        String launchingNewGame = "";
         do {
             game.start();
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
-                continueGame = scan.nextLine().trim().toLowerCase();
-            } while (!continueGame.equals("yes") &&
-                !continueGame.equals("no"));
-        } while (!continueGame.equals("no"));
+                launchingNewGame = scan.nextLine().trim().toLowerCase();
+            } while (!launchingNewGame.equals("yes") &&
+                !launchingNewGame.equals("no"));
+        } while (!launchingNewGame.equals("no"));
     }
 }

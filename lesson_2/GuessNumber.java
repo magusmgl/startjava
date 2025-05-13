@@ -17,7 +17,6 @@ public class GuessNumber {
         
         int firstPlayerNumber;
         int secondPlayerNumber;
-        boolean isGameOver = false;
         Scanner scan = new Scanner(System.in);
         System.out.printf("\nКомпьютер загадал число от 1 до 100. Вам нужно угадать данное число.%n");
         do {
@@ -28,13 +27,12 @@ public class GuessNumber {
             
             if (firstPlayer.getNumber() == hiddenNumber) {
                 System.out.println(firstPlayer.getName() + " выиграл!");
-                isGameOver = true;
                 break;
-            } else {
-                System.out.printf("%d %s числа, которое загадал компьютер%n", firstPlayer.getNumber(),
-                        firstPlayer.getNumber() > hiddenNumber ? "больше" : "меньше");
             }
 
+            System.out.printf("%d %s числа, которое загадал компьютер%n", firstPlayer.getNumber(),
+                    firstPlayer.getNumber() > hiddenNumber ? "больше" : "меньше");
+            
             do {
                 System.out.print(secondPlayer.getName() + " введите число: ");
                 secondPlayerNumber = scan.nextInt();
@@ -42,12 +40,11 @@ public class GuessNumber {
             
             if (secondPlayer.getNumber() == hiddenNumber) {
                 System.out.println(secondPlayer.getName() + " выиграл!");
-                isGameOver = true;
                 break;
-            } else {
-                System.out.printf("%d %s числа, которое загадал компьютер%n", secondPlayer.getNumber(),
-                        secondPlayer.getNumber() > hiddenNumber ? "больше" : "меньше");
             }
-        } while (!isGameOver);
+
+            System.out.printf("%d %s числа, которое загадал компьютер%n", secondPlayer.getNumber(),
+                    secondPlayer.getNumber() > hiddenNumber ? "больше" : "меньше");
+        } while (true);
     }
 }
