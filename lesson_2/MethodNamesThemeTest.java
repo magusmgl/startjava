@@ -1,6 +1,6 @@
-public class MainMethod {
+public class MethodNamesThemeTest {
     public static void main(String[] args) {
-        execNvm();
+        execNbm();
         execBm();
     }
 
@@ -17,7 +17,7 @@ public class MainMethod {
         System.out.println(bm.isExistFile());
     }
 
-    private static void execNvm() {
+    private static void execNbm() {
         NonBooleanMethods nbm = new NonBooleanMethods();
         nbm.findLongestWord();
         nbm.selectMenuItem();
