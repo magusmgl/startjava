@@ -1,3 +1,5 @@
+package src.com.startjava.lesson_1.base;
+
 public class VariableNamesTheme {
     public static void main(String[] args) {
         System.out.println("\n1. РАЗНЫЕ ПЕРЕМЕННЫЕ");

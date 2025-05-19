@@ -1,3 +1,5 @@
+package src.com.startjava.lesson_1.base;
+
 import java.sql.SQLOutput;
 import java.util.Random;
 

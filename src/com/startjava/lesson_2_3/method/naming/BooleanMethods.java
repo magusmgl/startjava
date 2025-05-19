@@ -1,3 +1,5 @@
+package src.com.startjava.lesson_2_3.method.naming;
+
 public class BooleanMethods {
     public boolean shouldAppTerminate() {
         System.out.print(MethodUtils.getCurrentMethodName() +
