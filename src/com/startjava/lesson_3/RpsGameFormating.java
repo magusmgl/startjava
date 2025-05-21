@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 // Игра Камень-Ножницы-Бумага
 public class RpsGameFormating {
+    private static final String ROCK = "R";
+    private static final String SCISSORS = "S";
+    private static final String PAPER = "P";
+
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
         Scanner console = new Scanner(System.in);
@@ -24,11 +28,7 @@ public class RpsGameFormating {
         determineWinner(name1, sign1, name2, sign2);
         console.close();
     }
-
-    private static final String ROCK = "R";
-    private static final String SCISSORS = "S";
-    private static final String PAPER = "P";
-
+    
     private static String inputName(Scanner console) {
         System.out.print("Введите имя игрока: ");
         return console.nextLine();
